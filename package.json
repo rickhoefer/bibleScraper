@@ -1,0 +1,20 @@
+{
+    "name": "bibleScraper",
+    "version": "1.0.0",
+    "description": "Scrapes a bible from BibleGateway. Used to grab the public domain Reina Valera Antigua.",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node index.js;"  
+    },
+    "author": "Rick Hoefer",
+    "license": "MIT",
+    "dependencies": {
+      "async": "^2.6.0",
+      "axios": "^0.17.1",
+      "bluebird": "^3.5.1",
+      "body-parser": "^1.18.2",
+      "cheerio": "^1.0.0-rc.2"
+    }
+  }
+  
