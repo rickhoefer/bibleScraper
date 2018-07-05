@@ -13,7 +13,6 @@ axios.get('https://www.biblegateway.com/versions/Reina-Valera-Antigua-RVA-Biblia
     
     var bookList = getBooks(response.data);
     bookList.forEach(function(book, i) {
-
         fs.mkdirSync("./books/" + book.name);
         book.chapters.forEach(function(href, chapterNumber) {
                 getText(href).then(function(text) {
@@ -31,7 +30,13 @@ function getText(href) {
     return axios.get(baseUrl + href)
     .then(response => {
         var $ = cheerio.load(response.data);
-        return $(".text-html .verse").text();
+        var verses = [];
+        
+        $(".text-html .verse").each(function() {
+            verses.push($(this).text());
+        });
+
+        return verses.join("\n");
     });
 }
 
